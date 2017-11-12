@@ -1,0 +1,31 @@
+import java.util.*;
+class wer
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        long n=sc.nextInt();
+        while(n>0)
+        {
+            long s=sc.nextInt();
+            long min=1000000000;
+            long i=0;
+            long temp=0;
+            while(s>0)
+            {
+                long q=sc.nextInt();
+                i++;
+                if(q<min)
+               { min=q;
+                temp=i;
+                
+                }
+                s--;
+            }
+            System.out.println(temp);
+            n--;
+            
+        }
+    }
+}
+             
