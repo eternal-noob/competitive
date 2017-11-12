@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+  int main()
+  {
+      int t;
+      cin>>t;
+      while(t--)
+      {int flag=0;
+	string fuck="";
+         int n,p;
+         cin>>n>>p;
+         if(p==1||(p==2)||(n%p!=0))
+        { 
+           flag=1;
+         
+        }
+	if(flag!=1)
+	{
+        
+         string s="a";
+         for(int i=1;i<p-1;i++)
+	s=s+"b";
+	s=s+"a";
+ 
+ 
+	if(n==p)
+	{
+	fuck=s;	
+	
+	}
+	else
+	{
+        for(int i=0;i<(n/p);i++)
+        {
+         fuck=fuck+s;
+        }
+	}	
+         }
+		if(flag==1)
+         cout<<"impossible"<<endl;
+        if(flag!=1)
+        cout<<fuck<<endl;
+         
+        }
+          
+    
+}
+        
