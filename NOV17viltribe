@@ -1,0 +1,87 @@
+import java.io.*;
+import java.util.*;
+ 
+ class Solution {
+    int min(int a,int b)
+    {
+      if(a<b)
+          return a;
+        else
+            return b;
+        
+    }
+ 
+    public static void main(String[] args) 
+    {
+       Scanner sc=new Scanner(System.in);
+int t=sc.nextInt();
+while(t>0)
+{
+        String s=sc.next();
+        int l=s.length();
+        int ar[]=new int[l];
+        int q=0;
+    int j=0;
+        Solution obj=new Solution();
+        for(int i=0;i<l;i++)
+        {
+            char c=s.charAt(i);
+           if(c=='.')
+           {
+               int z=s.indexOf('A',i);
+               int m=s.indexOf('B',i);
+               if(z!=-1&&m!=-1)
+                    q=obj.min(z,m);
+               if(z==-1&&m==-1)
+                   break;
+               if(z==-1&&m!=-1)
+                    q=m;
+               if(m==-1&&z!=-1)
+                    q=z;
+               int si=q-i+1;
+               ar[j]=si-1;
+                   j++;
+               i=q-1;
+           }
+            else
+            {
+                ar[j]=(int)c-67;
+                    j++;
+            }
+        }
+    int ca=0;
+    int cb=0;
+    for(int uy=0;uy<j;uy++)
+    {
+        if(ar[uy]>0&&uy!=0)
+        {
+            if(ar[uy-1]==-2&&ar[uy+1]==-2)
+                ca=ca+ar[uy];
+            if(ar[uy-1]==-1&&ar[uy+1]==-1)
+                cb=cb+ar[uy];
+        }
+        if(ar[uy]==-2)
+            ca++;
+        if(ar[uy]==-1)
+            cb++;
+        
+    }
+    System.out.println(ca+" "+cb);
+        
+        
+    
+    
+    
+    
+    
+    t--;
+}
+}
+               
+           
+            
+            
+            
+            
+            
+        }
