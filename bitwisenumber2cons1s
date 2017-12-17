@@ -1,0 +1,43 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+      
+   
+      long m=93;
+        int flag=0;
+        long u=m;
+        long i=m;
+        while(u>1)
+        {   
+            if(u%2==1&&((u>>1)%2==1))
+            {
+                flag=1;
+                break;
+            }
+            else
+            {m=m>>1;u=m;}
+        }
+        if(flag==0)
+        {
+            System.out.println(i);
+            
+            
+        }
+       
+          
+            
+       
+          
+          
+          
+        
+          
+   }  
+            
+            
+        
+    }     
+    
