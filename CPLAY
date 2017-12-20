@@ -1,0 +1,95 @@
+import java.util.*;
+import java.io.*;
+class solution
+{
+	public static void main(String args[]) throws Exception
+	{
+	 InputStreamReader r=new InputStreamReader(System.in);    
+    BufferedReader br=new BufferedReader(r);
+    String s;
+    while((s=br.readLine())!=null)
+    {
+	
+	int[] ass=new int[20];
+	for(int i=0;i<20;i++)
+	{
+		ass[i]=((int)s.charAt(i)-48);
+		
+	}
+	int suma=0;
+	int sumb=0;
+	int ca=5;
+	int cb=5;
+	int c=0;
+	int got=0;
+	char flag='c';
+	for(int j=0;j<10;j++)
+	{
+		if(j%2==0)
+		{suma=suma+ass[j];ca--;if((suma-sumb)>cb){c=j;flag='a';break;}if((sumb-suma)>ca){c=j;flag='b';break;}}
+		if(j%2!=0)
+		{sumb=sumb+ass[j];cb--;if((suma-sumb)>cb){c=j;flag='a';break;}if((sumb-suma)>ca){c=j;flag='b';break;}}
+
+
+	}
+	if(flag=='a')
+	{
+		System.out.print("TEAM-A ");
+		System.out.print(c+1);
+
+
+	}
+	if(flag=='b')
+	{
+		System.out.print("TEAM-B ");
+		System.out.print(c+1);
+
+
+	}
+	if(flag=='c')
+	{
+		if(suma>sumb)
+		System.out.println("TEAM-A "+"10");
+		if(sumb>suma)
+		System.out.println("TEAM-B "+"10");
+		if(suma==sumb)
+		got=1;
+		
+
+	}
+	if(got==1)
+	{
+		int suma1=0;
+		int sumb1=0;
+		for(int j=10;j<20;j++)	
+		{
+			suma1=suma1+ass[j++];
+			sumb1=sumb1+ass[j];
+			if(suma1>sumb1){
+			System.out.print("TEAM-A ");
+			System.out.println(j+1);break;}
+			if(sumb1>suma1){
+			System.out.print("TEAM-B ");
+			System.out.println(j+1);break;}
+
+
+
+		}if(suma1==sumb1)
+		System.out.println("TIE");
+
+
+
+
+
+
+
+
+
+	}
+
+
+	
+}
+
+	}
+}

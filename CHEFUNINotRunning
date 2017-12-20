@@ -1,0 +1,202 @@
+import java.util.*;
+class solution
+{	
+	int min(int c,int y,int s)
+	{
+		if(c<=y)
+		{
+			if(c<=s)
+			return c;
+			if(c>s)
+			return s;
+		}
+		if(c>y)
+		{
+			if(y>=s)
+			return s;
+			if(y<s)
+			return y;
+
+		}	
+
+		
+        return 0;
+
+
+	}
+	int max(int c,int y,int s)
+	{
+		if(c>=y)
+		{
+			if(c>=s)
+			return c;
+			if(s>c)
+			return s;
+		}
+		if(c<y)
+		{
+			if(y>=s)
+			return y;
+			if(y<s)
+			return s;
+
+	    }
+return 0;
+	}
+	int mid(int c,int y,int s)
+	{
+	if((y>=c&&y<=s)||(y<=c&&y>=s))
+	return y;
+	if((c>=y&&c<=s)||(c<=y&&c>=s))
+	return c;
+	if((s>=c&&s<=y)||(s<=c&&s>=y))
+	return s;
+	return 0;
+	}
+
+
+	
+	
+
+
+	public static void main(String args[]) throws IOException
+	{
+		Scanner sc=new Scanner(System.in);
+		int t1=sc.nextInt();
+		while(t1>0)
+		{	solution obj=new solution();
+		int x,y,z,a,b,c;
+		if(sc.hasNext())
+			 x=sc.nextInt();
+			if(sc.hasNext())
+			 y=sc.nextInt();
+			if(sc.hasNext())
+			 z=sc.nextInt();
+			if(sc.hasNext())
+			 a=sc.nextInt();
+			if(sc.hasNext())
+		 b=sc.nextInt();
+			if(sc.hasNext())
+			 c=sc.nextInt();
+			int e=0;
+			while(!(x==0&&y==0&z==0))
+			{
+				if(x>0&&y>0&&z>0)
+				{
+					int t=obj.min(6*a,3*b,2*c);
+					if(t==2*c)
+					{x=x-1;y=y-1;z=z-1;
+					e=e+c;
+					}
+					else if(t==3*b)
+					{int maxw=obj.max(x,y,z);
+					int minw=obj.min(x,y,z);
+					int midw=obj.mid(x,y,z);
+					maxw=maxw-1;minw=minw-1;
+					x=maxw;y=midw;z=minw;
+					e=e+b;}
+					else if(t==6*a)
+					{int maxw=obj.max(x,y,z);
+					int minw=obj.min(x,y,z);
+					int midw=obj.mid(x,y,z);
+					maxw=maxw-1;
+					x=maxw;y=midw;z=minw;
+					e=e+a;}
+				}
+				else if((x>0&&y>0&&z==0)||(x>0&&z>0&&y==0)||(z>0&&y>0&&x==0))
+				{
+					int t=obj.min(6*a,3*b,100000);
+					if(t==3*b)
+					{
+
+					if(x>0&&y>0&&z==0)
+					{x=x-1;y=y-1;
+					e=e+b;}
+					else if(z>0&&y>0&&x==0)
+					{z=z-1;y=y-1;
+					e=e+b;}
+					else if(z>0&&x>0&&y==0)
+					{x=x-1;z=z-1;
+					e=e+b;}
+					}
+
+					else if(t==6*a)
+					{
+					 if(x>0&&y>0&&z==0)
+					{int maxw=obj.max(x,y,z);
+						int midw=obj.mid(x,y,z);
+					    maxw=maxw-1;
+					    x=maxw;
+					    y=midw;
+					e=e+a;}
+					else if(z>0&&y>0&&x==0)
+					{int maxw=obj.max(x,y,z);
+						int midw=obj.mid(x,y,z);
+					    maxw=maxw-1;
+					    z=maxw;
+					    y=midw;
+					e=e+a;}
+					else if(z>0&&x>0&&y==0)
+					{int maxw=obj.max(x,y,z);
+						int midw=obj.mid(x,y,z);
+					    maxw=maxw-1;
+					    z=maxw;
+					    x=midw;
+					e=e+a;}
+
+					}
+
+
+				}
+
+				else if((x>0&&y==0&&z==0)||(x==0&&z>0&&y==0)||(z==0&&y>0&&x==0))
+				{
+					if((x>0&&y==0&&z==0))
+					{x=x-1;e=e+a;}
+					else if((y>0&&x==0&&z==0))
+					{y=y-1;e=e+a;}
+					else if(x==0&&y==0&&z>0)
+					{z=z-1;e=e+a;}
+
+
+
+				}
+
+
+				
+
+
+
+			}
+               System.out.println(e); 
+			t1--;	
+
+		}
+
+
+
+
+
+
+						
+
+
+
+
+
+
+
+
+
+
+		
+
+
+		
+
+
+
+
+
+	}
+}
